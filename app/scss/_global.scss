@@ -7,6 +7,11 @@ body {
 	color: #666666;
 }
 
+a{
+	color: #666666;
+}
+
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -24,6 +29,34 @@ body {
   max-width: 1614px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.link{
+	color: #0077FF;
+	font-size: 16px;
+	position: relative;
+	width: fit-content;
+	cursor: pointer;
+	transition: 0.3s;
+
+	&:after{
+		content: url("../images/arrow.svg");
+		position: absolute;
+		width: 18px;
+		height: 12px;
+		right: -38px;
+		transition: 0.4s;
+
+	}
+
+	&:hover:after{
+		top: 8px;
+		rotate: -180deg;
+	}
+}
+
+.link--right{
+	margin-right: 38px;
 }
 
 .stats{
@@ -53,6 +86,7 @@ body {
 		font-size: 55px;
 		color: #0077FF;
 		margin-right: 20px;
+		font-family: 'Unbounded';
 	}
 
 }
@@ -62,6 +96,13 @@ body {
 	font-size: 40px;
 	line-height: 50px;
 	color: #002D64;
+	font-family: 'Unbounded';
+}
+
+.link-page{
+	font-size: 14px;
+	margin-bottom: 10px;
+	color: #666666;
 }
 
 
@@ -69,16 +110,46 @@ body {
 
 	display: flex;
 	flex-direction: row;
+	margin-bottom: 114px;
 
-	&__paginaton{
-		font-size: 14px;
-		margin-bottom: 10px;
+	&__left{
+		flex: 0 0 calc(50% - 65px);
+		margin-right: 65px;
+	}
+
+	&__title{
+		margin-bottom: 30px;
+	}
+
+	&__text{
+		font-size: 16px;
+		line-height: 24px;
+		color: #666666;
+		margin-bottom: 40px;
+
+	}
+
+	p{
+		margin-bottom: 15px;
+	}
+
+	img{
+		max-width: unset;
 	}
 
 
 
-	&__left{
-		flex: 0 0 calc(50% - 65px);
+
+}
+
+.news{
+
+	margin-bottom: 120px;
+
+	&__head{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 }
