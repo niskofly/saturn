@@ -529,6 +529,14 @@ a{
 
 }
 
+.partners{
+
+	&__row{
+		display: flex;
+		justify-content: space-between;
+	}
+
+}
 
 
 
