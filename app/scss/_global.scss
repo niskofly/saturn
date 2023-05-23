@@ -530,13 +530,80 @@ a{
 }
 
 .partners{
+	margin-bottom: 120px;
 
 	&__row{
 		display: flex;
 		justify-content: space-between;
 	}
 
+	&__nav{
+		display: flex;
+	}
+
+	&__button--next{
+		position: relative;
+		cursor: pointer;
+
+		&:after{
+			content: url("../images/slider-right.svg");
+		}
+	}
+
+
+	&__button--prev{
+		position: relative;
+		cursor: pointer;
+		margin-right: 20px;
+
+		&:after{
+			content: url("../images/slider-left.svg");
+		}
+	}
+
 }
 
+.contacts{
+	display: flex;
+	margin-bottom: 120px;
 
+	&__map{
+		flex: 0 0 65%;
+		margin-right: 80px;
+		border-radius: 10px;
 
+		iframe{
+			border-radius: 10px;
+		}
+	}
+
+	&__address{
+		margin-bottom: 30px;
+		line-height: 28px;
+	}
+
+	&__time{
+		margin-bottom: 30px;
+	}
+
+	&__row{
+		margin-bottom: 20px;
+	}
+
+	&__phones{
+		display: flex;
+	}
+
+	&__departament{
+		margin-right: 30px;
+	}
+
+	&__phone{
+
+		.contacts__row{
+			display: block;
+		}
+
+	}
+
+}
