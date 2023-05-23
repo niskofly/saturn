@@ -33,7 +33,7 @@ a{
 
 .main {
 	flex: 1 0 auto;
-	background-color: rgba(0, 54, 248, 0.07);
+	background: rgba(5, 0, 248, 0.05);
 }
 .footer {
 	flex: 0 0 auto;
@@ -81,6 +81,14 @@ a{
 	color: #002D64;
 	font-family: 'Unbounded';
 	margin-bottom: 30px;
+}
+
+.page-title{
+	font-family: 'Unbounded';
+	font-weight: 700;
+	font-size: 80px;
+	color: #002D64;
+	margin-bottom: 60px;
 }
 
 
