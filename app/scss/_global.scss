@@ -814,3 +814,48 @@ a{
 
 
 }
+
+.personal{
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	&-card{
+		flex: 0 0 calc((100% - 105px) / 4);
+		margin-right: 35px;
+		margin-bottom: 60px;
+
+		img{
+			border-radius: 10px;
+			margin-bottom: 20px;
+			object-fit: cover;
+			min-height: 402px;
+		}
+
+		&:nth-of-type(4n){
+			margin-right: 0;
+		}
+
+		&__name{
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 24px;
+			color: #000000;
+			margin-bottom: 10px;
+			transition: 0.3s;
+
+			&:hover{
+				color: #002D64;
+			}
+		}
+
+		&__job{
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			color: #666666;
+		}
+	}
+
+}
