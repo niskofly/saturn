@@ -86,7 +86,7 @@ a{
 .page-title{
 	font-family: 'Unbounded';
 	font-weight: 700;
-	font-size: 80px;
+	font-size: 44px;
 	color: #002D64;
 	margin-bottom: 60px;
 }
@@ -710,6 +710,18 @@ a{
 			}
 		}
 
+		a.panel__link{
+			white-space: pre-wrap;
+		}
+
+		.panel__link:hover{
+			color: #0077FF;
+		}
+
+		.panel__link.active{
+			font-weight: 600;
+		}
+
 
 		a.aside__link{
 			padding: 24px 40px;
@@ -738,7 +750,7 @@ a{
 
 		}
 
-		a.active{
+		a.aside__link.active{
 			border-bottom: none;
 			font-weight: 700;
 			position: relative;
@@ -760,6 +772,27 @@ a{
 }
 
 .main-info{
+
+	&__subtitle{
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		color: #333333;
+		padding: 0 30px;
+		margin-bottom: 40px;
+		position: relative;
+
+		&:before{
+			content: '';
+			position: absolute;
+			left: 0px;
+			top: 0;
+			background: #0077FF;
+			width: 4px;
+			height: 100%;
+
+		}
+	}
 
 	&__img{
 		margin-bottom: 30px;
