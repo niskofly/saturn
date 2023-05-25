@@ -33,7 +33,7 @@ a{
 
 .main {
 	flex: 1 0 auto;
-	background: rgba(5, 0, 248, 0.05);
+	background: url("../images/phone.jpg");
 }
 .footer {
 	flex: 0 0 auto;
@@ -773,6 +773,20 @@ a{
 
 .main-info{
 
+	&__music{
+		margin-bottom: 50px;
+	}
+
+
+	&__text-hymn{
+		white-space: break-spaces;
+		margin-bottom: 70px;
+
+		p{
+			margin-bottom: 0 !important;
+		}
+	}
+
 	&__subtitle{
 		font-weight: 500;
 		font-size: 20px;
@@ -948,5 +962,79 @@ a{
 			color: #666666;
 		}
 	}
+
+}
+
+.downloads{
+
+	display: flex;
+	flex-direction: column;
+
+	&-card{
+		display: flex;
+		padding: 40px;
+		background: transparent;
+		align-items: center;
+		border: 1px solid #DFEEFF;
+		transition: 0.3s;
+
+		&:hover{
+			background: #fff;
+		}
+
+		&:first-of-type{
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+
+		&:last-of-type{
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+
+		&__icon{
+			margin-right: 40px;
+		}
+
+		&__title{
+			margin-bottom: 10px;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 22px;
+			color: #000000;
+
+			&:hover{
+				color: #002D64;
+			}
+		}
+
+		&__size{
+			font-size: 16px;
+			color: #666666;
+		}
+
+		&__center{
+			flex: 0 0 80%;
+		}
+
+		&__right{
+			margin-left: auto;
+			transition: 0.3s;
+
+			&:after{
+				content: url("../images/download.svg");
+				height: 17px;
+				width: 20px;
+			}
+
+			&:hover:after{
+				content: url("../images/download-active.svg");
+			}
+		}
+
+	}
+
+
+
 
 }
