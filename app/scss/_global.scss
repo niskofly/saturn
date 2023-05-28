@@ -78,6 +78,7 @@ a {
 
 .main {
   flex: 1 0 auto;
+  width: 100%;
 }
 
 .footer {
@@ -1099,6 +1100,18 @@ a {
 .afisha {
   width: 100%;
   margin-bottom: 120px;
+
+  &__block{
+    margin-bottom: 100px;
+  }
+
+  &__subtitle{
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+    color: #000000;
+    margin-bottom: 36px;
+  }
 
   &__versus {
     margin: 0 15px;
