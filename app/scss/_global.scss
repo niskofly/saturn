@@ -1341,6 +1341,52 @@ a {
 
 }
 
+.pride{
+
+  display: flex;
+  flex-direction: row;
+
+  &__left{
+    flex: 0 0 35%;
+    margin-right: 30px;
+  }
+
+  &__info{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    color: #333333;
+    margin-bottom: 30px;
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text{
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    position: relative;
+
+    &:after{
+      content: '';
+      height: 1px;
+      width: 18px;
+      background: #0077FF;
+      position: absolute;
+      left: 0;
+      top: 15px;
+
+    }
+
+  }
+
+}
+
 
 .anketa {
   padding: 85px 105px;
