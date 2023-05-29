@@ -1238,6 +1238,109 @@ a {
 
 }
 
+.students{
+
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+
+  .student{
+
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    flex: 0 0 calc((100% - 160px) / 5);
+    margin-bottom: 64px;
+    transition: 0.5s;
+
+    &:hover .student__name{
+      color: #002D64;
+    }
+
+    &:hover img{
+      filter: drop-shadow(0px 10px 30px rgba(43, 58, 95, 0.15));
+    }
+
+    &:hover{
+      transform: translateY(-10px);
+    }
+
+    &:nth-of-type(5n){
+      margin-right: 0;
+    }
+
+    img{
+      margin-bottom: 20px;
+    }
+
+    &__name{
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+
+
+
+
+  }
+
+}
+
+.achievements{
+
+  &__title{
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 50px;
+    color: #000000;
+    margin-bottom: 35px;
+  }
+
+  &__column{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__img{
+    margin-left: auto;
+  }
+
+  &__row{
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333333;
+  }
+
+  &__card{
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 100%;
+    padding: 40px;
+    border: 1px solid #DFEEFF;
+
+
+    &:first-of-type{
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    &:last-of-type{
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+  }
+
+  &__year{
+    margin-right: 45px;
+  }
+
+}
+
 
 .anketa {
   padding: 85px 105px;
@@ -1569,24 +1672,6 @@ a {
     }
 
 
-    &__date {
-      font-family: 'Unbounded';
-      font-weight: 400;
-      font-size: 26px;
-      color: #0077FF;
-      margin-right: 40px;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 30px;
-        background: #0077FF;
-        left: -40px;
-      }
-    }
-
     &__column {
       margin-right: 40px;
     }
@@ -1623,6 +1708,24 @@ a {
   }
 
 
+}
+
+.date {
+  font-family: 'Unbounded';
+  font-weight: 400;
+  font-size: 26px;
+  color: #0077FF;
+  margin-right: 40px;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background: #0077FF;
+    left: -40px;
+  }
 }
 
 .personal {
