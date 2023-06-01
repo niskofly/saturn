@@ -1,4 +1,5 @@
 $(function () {
+
     let acc = document.getElementsByClassName("aside__link--advanced");
     let i;
 
@@ -21,6 +22,7 @@ $(function () {
 
 // Клонируем меню, чтобы задать свои стили для мобильной версии
     const menu = document.querySelector("#menu").cloneNode(1);
+    const social = document.querySelector('.header-social__links').cloneNode(1);
 
 // При клике на иконку hamb вызываем ф-ию hambHandler
     hamb.addEventListener("click", hambHandler);
@@ -38,6 +40,7 @@ $(function () {
 // Здесь мы рендерим элементы в наш попап
     function renderPopup() {
         popup.appendChild(menu);
+        popup.appendChild(social)
     }
 
 // Код для закрытия меню при нажатии на ссылку
