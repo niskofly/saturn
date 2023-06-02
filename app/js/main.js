@@ -1,60 +1,259 @@
 $(function () {
-
-    let acc = document.getElementsByClassName("aside__link--advanced");
-    let i;
-
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            let panel = this.nextElementSibling;
-            if (panel.style.maxHeight){
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
+    let slides = document.querySelectorAll('.swiper-main__slide')
+    let header = document.querySelector('.header--main')
+    let logo = document.querySelector('#logo img')
+    let socialLink = document.querySelectorAll('.header-social__link svg path')
+    let screenWidth = window.innerWidth
+    let swiper = new Swiper(".mySwiper", {
+        slidesPerView: 6,
+        spaceBetween: 30,
+        loop: true,
+        infinity: true,
+        navigation: {
+            nextEl: ".partners__button--next",
+            prevEl: ".partners__button--prev",
+        },
+        breakpoints:{
+            0:{
+                slidesPerView: 2
+            },
+            600:{
+                slidesPerView: 4
+            },
+            1000:{
+                slidesPerView: 6
             }
-        });
-    }
-
-    const hamb = document.querySelector("#hamb");
-    const popup = document.querySelector("#popup");
-    const body = document.body;
-
-// Клонируем меню, чтобы задать свои стили для мобильной версии
-    const menu = document.querySelector("#menu").cloneNode(1);
-    const social = document.querySelector('.header-social__links').cloneNode(1);
-
-// При клике на иконку hamb вызываем ф-ию hambHandler
-    hamb.addEventListener("click", hambHandler);
-
-// Выполняем действия при клике ..
-    function hambHandler(e) {
-        e.preventDefault();
-        // Переключаем стили элементов при клике
-        popup.classList.toggle("open");
-        hamb.classList.toggle("active");
-        body.classList.toggle("noscroll");
-        renderPopup();
-    }
-
-// Здесь мы рендерим элементы в наш попап
-    function renderPopup() {
-        popup.appendChild(menu);
-        popup.appendChild(social)
-    }
-
-// Код для закрытия меню при нажатии на ссылку
-    const links = Array.from(menu.children);
-
-// Для каждого элемента меню при клике вызываем ф-ию
-    links.forEach((link) => {
-        link.addEventListener("click", closeOnClick);
+        }
     });
 
-// Закрытие попапа при клике на меню
-    function closeOnClick() {
-        popup.classList.remove("open");
-        hamb.classList.remove("active");
-        body.classList.remove("noscroll");
+    let slider = new Swiper('.swiper-main', {
+        // Enable lazy loading
+        lazy: true,
+        infinity: true,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+
+    if(screenWidth >= 1000){
+
+        window.onload = function (){
+            let currentSlide = slides[slider.realIndex]
+            if (currentSlide.dataset.color === 'light'){
+                header.classList.add('light')
+                logo.src = './images/logo-white.png'
+                socialLink.forEach((link) =>{
+                    link.style.fill = '#fff'
+                })
+            } else {
+                header.classList.add('dark')
+            }
+        }
+
+        slider.on('slideChange', function () {
+            let currentSlide = slides[slider.realIndex]
+
+            if (currentSlide.dataset.color === "light"){
+                header.classList.add('light')
+                header.classList.remove('dark')
+            }
+            if(currentSlide.dataset.color === "dark"){
+                header.classList.add('dark')
+                header.classList.remove('light')
+            }
+
+            if(header.classList.contains('light')){
+                logo.src = './images/logo-white.png'
+                socialLink.forEach((link) =>{
+                    link.style.fill = '#fff'
+                })
+            } else if(header.classList.contains('dark')){
+                logo.src = './images/logo.png'
+                socialLink.forEach((link) =>{
+                    link.style.fill = '#0077FF'
+                })
+            }
+
+        })
+
     }
+
+    if(screenWidth < 1000) {
+
+        let currentSlide = slides[slider.realIndex]
+        header.classList.add('mobile')
+        logo.src = './images/logo.png'
+        socialLink.forEach((link) => {
+            link.style.fill = '#0077FF'
+        })
+        if (currentSlide.dataset.color === 'light') {
+            header.classList.add('light')
+        } else {
+            header.classList.add('dark')
+        }
+
+        slider.on('slideChange', function () {
+            let currentSlide = slides[slider.realIndex]
+
+            if (currentSlide.dataset.color === "light"){
+                header.classList.add('light')
+                header.classList.remove('dark')
+            }
+            if(currentSlide.dataset.color === "dark"){
+                header.classList.add('dark')
+                header.classList.remove('light')
+            }
+
+        })
+    }
+
+    //Аккордион
+    (function () {
+        let acc = document.getElementsByClassName("aside__link--advanced");
+        let i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    }());
+    //Мобильное меню
+    (function () {
+        const hamb = document.querySelector("#hamb");
+        const popup = document.querySelector("#popup");
+        const body = document.body;
+        // Клонируем меню, чтобы задать свои стили для мобильной версии
+        const menu = document.querySelector("#menu").cloneNode(1);
+        // При клике на иконку hamb вызываем ф-ию hambHandler
+        hamb.addEventListener("click", hambHandler);
+        // Выполняем действия при клике ..
+        function hambHandler(e) {
+            e.preventDefault();
+            // Переключаем стили элементов при клике
+            popup.classList.toggle("open");
+            hamb.classList.toggle("active");
+            body.classList.toggle("noscroll");
+            renderPopup();
+        }
+        // Здесь мы рендерим элементы в наш попап
+        function renderPopup() {
+            popup.appendChild(menu);
+        }
+        // Код для закрытия меню при нажатии на ссылку
+        const links = Array.from(menu.children);
+        // Для каждого элемента меню при клике вызываем ф-ию
+        links.forEach((link) => {
+            link.addEventListener("click", closeOnClick);
+        });
+        // Закрытие попапа при клике на меню
+        function closeOnClick() {
+            popup.classList.remove("open");
+            hamb.classList.remove("active");
+            body.classList.remove("noscroll");
+        }
+        }());
+
+    window.addEventListener('resize', (e) => {
+
+        let screenWidth = window.innerWidth
+
+        if(screenWidth >= 1000){
+            header.classList.remove('mobile')
+            console.log('comp')
+
+        let currentSlide = slides[slider.realIndex]
+        if (currentSlide.dataset.color === 'light'){
+            header.classList.add('light')
+            logo.src = './images/logo-white.png'
+            socialLink.forEach((link) =>{
+                link.style.fill = '#fff'
+            })
+        } else {
+            header.classList.add('dark')
+        }
+
+
+            slider.on('slideChange', function () {
+                let currentSlide = slides[slider.realIndex]
+
+                if (currentSlide.dataset.color === "light"){
+                    header.classList.add('light')
+                    header.classList.remove('dark')
+                }
+                if(currentSlide.dataset.color === "dark"){
+                    header.classList.add('dark')
+                    header.classList.remove('light')
+                }
+
+                if(header.classList.contains('light')){
+                    logo.src = './images/logo-white.png'
+                    socialLink.forEach((link) =>{
+                        link.style.fill = '#fff'
+                    })
+                } else if(header.classList.contains('dark')){
+                    logo.src = './images/logo.png'
+                    socialLink.forEach((link) =>{
+                        link.style.fill = '#0077FF'
+                    })
+                }
+
+            })
+
+        }
+
+        if(screenWidth < 1000) {
+            console.log('mobilka')
+
+        let currentSlide = slides[slider.realIndex]
+        header.classList.add('mobile')
+        logo.src = './images/logo.png'
+        socialLink.forEach((link) => {
+            link.style.fill = '#0077FF'
+        })
+        if (currentSlide.dataset.color === 'light'){
+            header.classList.add('light')
+        } else {
+            header.classList.add('dark')
+        }
+
+
+            slider.on('slideChange', function () {
+                let currentSlide = slides[slider.realIndex]
+
+                if (currentSlide.dataset.color === "light"){
+                    header.classList.add('light')
+                    header.classList.remove('dark')
+                    logo.src = './images/logo.png'
+                    socialLink.forEach((link) => {
+                        link.style.fill = '#0077FF'
+                    })
+                }
+                if(currentSlide.dataset.color === "dark"){
+                    header.classList.add('dark')
+                    header.classList.remove('light')
+                    logo.src = './images/logo.png'
+                    socialLink.forEach((link) => {
+                        link.style.fill = '#0077FF'
+                    })
+                }
+
+            })
+
+        }
+    });
+
 })

@@ -201,6 +201,16 @@
                         <div class="news-card--first__title">Первенство Московской области</div>
                         <div class="news-card--first__date">27 апреля 2023</div>
                     </a>
+                    <a href="#" class="news-card news-card--second">
+                        <img class="news-card__img" src="./images/news-1.png" alt="news">
+                        <div class="news-card__bottom">
+                            <div class="news-card__title">Защита индивидуальных проектов</div>
+                            <div class="news-card__date">27 апреля 2023</div>
+                            <div class="news-card__text">На прошедшей неделе в УОР № 5 «Мастер-Сатурн» прошла защита
+                                индивидуальных проектов у студентов 1 курса. Работа над...
+                            </div>
+                        </div>
+                    </a>
                     <a href="#" class="news-card">
                         <img class="news-card__img" src="./images/news-2.png" alt="news">
                         <div class="news-card__bottom">
@@ -590,128 +600,6 @@
 
 <!-- Initialize Swiper -->
 <script>
-    let swiper = new Swiper(".mySwiper", {
-        slidesPerView: 6,
-        spaceBetween: 30,
-        navigation: {
-            nextEl: ".partners__button--next",
-            prevEl: ".partners__button--prev",
-        },
-        breakpoints:{
-            0:{
-                slidesPerView: 2
-            },
-            600:{
-                slidesPerView: 4
-            },
-            1000:{
-                slidesPerView: 6
-            }
-        }
-    });
-
-    let slider = new Swiper('.swiper-main', {
-        // Enable lazy loading
-        lazy: true,
-        infinity: true,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        slidesPerView: 1,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-    let screenWidth = window.screen.width
-
-    if(screenWidth >= 1000){
-        let slides = document.querySelectorAll('.swiper-main__slide')
-        let header = document.querySelector('.header--main')
-        let logo = document.querySelector('#logo img')
-        let socialLink = document.querySelectorAll('.header-social__link svg path')
-
-        window.onload = function (){
-            let currentSlide = slides[slider.realIndex]
-            if (currentSlide.dataset.color === 'light'){
-                header.classList.add('light')
-                logo.src = './images/logo-white.png'
-                socialLink.forEach((link) =>{
-                    link.style.fill = '#fff'
-                })
-            } else {
-                header.classList.add('dark')
-            }
-        }
-
-
-        slider.on('slideChange', function () {
-            let currentSlide = slides[slider.realIndex]
-
-            if (currentSlide.dataset.color === "light"){
-                header.classList.add('light')
-                header.classList.remove('dark')
-            }
-            if(currentSlide.dataset.color === "dark"){
-                header.classList.add('dark')
-                header.classList.remove('light')
-            }
-
-            if(header.classList.contains('light')){
-                logo.src = './images/logo-white.png'
-                socialLink.forEach((link) =>{
-                    link.style.fill = '#fff'
-                })
-            } else if(header.classList.contains('dark')){
-                logo.src = './images/logo.png'
-                socialLink.forEach((link) =>{
-                    link.style.fill = '#0077FF'
-                })
-            }
-
-        })
-
-    }
-
-    if(screenWidth < 1000) {
-        let slides = document.querySelectorAll('.swiper-main__slide')
-        let header = document.querySelector('.header--main')
-        let logo = document.querySelector('#logo img')
-        let socialLink = document.querySelectorAll('.header-social__link svg path')
-
-        window.onload = function () {
-            let currentSlide = slides[slider.realIndex]
-            header.classList.add('mobile')
-            logo.src = './images/logo.png'
-            socialLink.forEach((link) => {
-                link.style.fill = '#0077FF'
-            })
-            if (currentSlide.dataset.color === 'light'){
-                header.classList.add('light')
-            } else {
-                header.classList.add('dark')
-            }
-        }
-
-        slider.on('slideChange', function () {
-            let currentSlide = slides[slider.realIndex]
-
-            if (currentSlide.dataset.color === "light"){
-                header.classList.add('light')
-                header.classList.remove('dark')
-            }
-            if(currentSlide.dataset.color === "dark"){
-                header.classList.add('dark')
-                header.classList.remove('light')
-            }
-
-        })
-
-    }
-
 
 </script>
 <script src="js/main.min.js"></script>

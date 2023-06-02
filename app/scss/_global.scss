@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
 }
 
+.news-card--second{
+  display: none;
+}
+
 .header--main.light {
 
   .swiper-main__title {
@@ -64,7 +68,7 @@ a {
   transition: 0.3s;
 
   &:hover {
-    opacity: 0.8;
+    background: #002D64;
   }
 }
 
@@ -89,6 +93,10 @@ a {
   max-width: 1614px;
   margin: 0 auto;
   padding: 0 15px;
+
+  section:last-of-type{
+    margin-bottom: 0;
+  }
 }
 
 .link {
@@ -97,21 +105,20 @@ a {
   position: relative;
   width: fit-content;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 
   &:after {
     content: url("../images/arrow.svg");
     position: absolute;
     width: 18px;
     height: 12px;
-    right: -38px;
+    right: -28px;
     transition: 0.4s;
 
   }
 
   &:hover:after {
-    top: 8px;
-    rotate: -180deg;
+    transform: translateX(10px);
   }
 }
 
@@ -661,7 +668,6 @@ a {
 
 
 .popup {
-  display: flex !important;
   flex-direction: column !important;
 
 }
@@ -676,6 +682,7 @@ a {
 
   .menu__first-row {
     margin-right: auto;
+    margin-top: 30px;
 
     li {
       margin-bottom: 30px;
@@ -815,7 +822,15 @@ a {
     color: #FFFFFF;
     padding: 10px 63px 10px 25px;
 
-    &:after {
+    &:hover{
+      background: #002D64;
+    }
+
+    &:hover:after {
+      transform: none;
+    }
+
+      &:after {
       content: url("../images/arrow-white.svg");
       right: 20px;
     }
@@ -825,7 +840,7 @@ a {
   .navbar {
     border-bottom: none;
     position: absolute;
-    z-index: 2;
+    z-index: 101;
   }
 
   .swiper-slide {
@@ -1083,14 +1098,13 @@ a {
   &__row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
   }
 
   &-card {
     display: flex;
     align-items: center;
-    flex: 0 0 calc(100% / 4 - 35px);
-    margin-right: 46px;
+    flex: 0 0 calc((100% - 135px) / 4);
+    margin-right: 45px;
     font-size: 14px;
 
     &:last-of-type {
@@ -1167,7 +1181,7 @@ a {
   }
 
   p {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   img {
@@ -1252,7 +1266,7 @@ a {
     }
 
 
-    &:nth-of-type(2n) {
+    &:nth-of-type(3n) {
       margin-right: 30px;
 
 
@@ -1314,11 +1328,11 @@ a {
     margin-right: 30px;
     padding: 20px;
     padding-bottom: 25px;
-    transition: 0.5s;
     background: transparent;
     border: 1px solid #DFEEFF;
     border-radius: 10px;
     margin-bottom: 30px;
+    transition: 0.5s;
 
     &:nth-of-type(4n) {
       margin-right: 0;
@@ -1457,10 +1471,27 @@ a {
 
     &__image {
       margin-bottom: 20px;
+      position: relative;
+      transition: 0.3s;
+
+      &:hover:after{
+        content: url("../images/play.png");
+      }
+
+      &:after{
+        content: url("../images/video.png");
+        position: absolute;
+        z-index: 2;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        width: 60px;
+        height: 43px;
 
       img {
         width: 100%;
         object-fit: contain;
+        }
       }
     }
 
@@ -1799,11 +1830,19 @@ a {
   }
 
   &__link {
-    background: #002D64;
+    background: #0077FF;
     padding: 10px 53px 10px 25px;
     color: #fff;
     border-radius: 10px;
     white-space: nowrap;
+
+    &:hover{
+      background: #002D64;
+    }
+
+    &:hover:after {
+      transform: none;
+    }
   }
 
   .link:after {
@@ -1811,10 +1850,6 @@ a {
     right: 15px;
   }
 
-  .link:hover:after {
-    top: 18px;
-
-  }
 
 }
 
@@ -2326,6 +2361,11 @@ a {
 
 @media (max-width: 1470px) {
 
+  .stats__number{
+    margin-bottom: 15px;
+    margin-right: 0;
+  }
+
   .stats-card {
     flex-wrap: wrap;
     text-align: center;
@@ -2344,6 +2384,27 @@ a {
 }
 
 @media (max-width: 1200px) {
+
+  .news-card--second{
+    margin-right: 30px;
+  }
+
+  .news-card{
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .news-card__img {
+    max-width: 400px;
+  }
+
+  .news-card--second{
+    display: block;
+  }
+
+  .news-card--first{
+    display: none;
+  }
 
   .page-info__row{
     flex-wrap: wrap;
@@ -2463,6 +2524,11 @@ a {
 
 @media (max-width: 1000px) {
 
+  .news-card{
+    flex: 0 0 100%;
+  }
+
+
   .personal-card{
     flex: 0 0 calc((100% - 70px)/3);
 
@@ -2476,15 +2542,15 @@ a {
   }
 
   .partners{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .anketa{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .news{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .header--main.header .swiper-wrapper{
@@ -2492,11 +2558,32 @@ a {
   }
 
   .stats{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+
+    &__row{
+      justify-content: center;
+    }
+
+    &-card{
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      flex: 0 0 calc((100% - 90px) / 2);
+
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+    }
+
+    &__text{
+      margin-bottom: auto;
+    }
+
+
   }
 
   .about{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .students {
@@ -2578,11 +2665,11 @@ a {
   .video-gallery-card{
     flex: 0 0 100%;
     margin-right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .video-gallery{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .photo-gallery {
@@ -2701,6 +2788,27 @@ a {
 }
 
 @media (max-width: 600px) {
+
+  .news-card{
+    width: 100%;
+  }
+
+  .news-card__img{
+    width: 100%;
+  }
+
+  .header{
+    margin-bottom: 80px;
+  }
+
+  .header .navbar .header-social__phone{
+    font-size: 12px;
+  }
+
+  .header .navbar .header-social__popup{
+    top: -20px;
+    left: -74px;
+  }
 
   .afisha__team{
     font-size: 18px;
@@ -2862,7 +2970,7 @@ a {
   }
 
   .afisha{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .afisha__row{
@@ -2870,16 +2978,13 @@ a {
   }
 
   .photo-gallery{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .video-gallery__row{
     flex-wrap: wrap;
   }
 
-  .title{
-    margin-bottom: 20px;
-  }
 
   .link--right{
     margin-bottom: 30px;
@@ -2892,6 +2997,7 @@ a {
   .title {
     font-size: 25px;
     line-height: 30px;
+    margin-bottom: 30px;
   }
 
   .stats-card {
@@ -2902,6 +3008,7 @@ a {
   .photo-gallery{
     &-picture {
       flex: 0 0 100%;
+      padding: 20px;
 
       &:nth-of-type(3n) {
         margin-right: 30px;
