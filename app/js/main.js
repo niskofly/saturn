@@ -7,8 +7,9 @@ $(function () {
     let swiper = new Swiper(".mySwiper", {
         slidesPerView: 6,
         spaceBetween: 30,
-        loop: true,
         infinity: true,
+        loop: true,
+        keyboard: true,
         navigation: {
             nextEl: ".partners__button--next",
             prevEl: ".partners__button--prev",
@@ -30,6 +31,7 @@ $(function () {
         // Enable lazy loading
         lazy: true,
         infinity: true,
+        keyboard: true,
         loop: true,
         pagination: {
             el: '.swiper-pagination',
