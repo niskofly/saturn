@@ -198,6 +198,11 @@ a {
     padding: 40px;
     border: 1px solid #DFEEFF;
     align-items: center;
+    cursor: pointer;
+
+    &:has(> div.active){
+      background: #fff;
+    }
 
     &:first-of-type {
       border-top-left-radius: 10px;
@@ -218,14 +223,24 @@ a {
 
   &-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
   &-card.active {
-    background: #fff;
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+
+    .ask__text{
+      color: #002D64;
+    }
+
+    .ask__right{
+      img{
+        margin-top: 10px;
+      }
+    }
   }
 
   &__left {
@@ -247,7 +262,12 @@ a {
   }
 
   &__right {
-    margin-left: auto;
+    flex: 0 0 5%;
+
+    img{
+      margin-left: auto;
+    }
+
   }
 
 }
@@ -263,11 +283,15 @@ a {
 }
 
 .ask__hidden {
+  padding-top: 30px;
   display: block;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  margin-left: 40px;
 }
 
 .header {
@@ -593,6 +617,24 @@ a {
 }
 
 @media (max-width: 650px) {
+
+  .question--tabs{
+    flex-wrap: wrap;
+  }
+
+  .question--tabs .tab{
+    flex: 0 0 100%;
+    margin-bottom: 15px !important;
+
+    &:last-of-type{
+      margin-bottom: 0 !important;
+    }
+
+    &:after{
+      display: none;
+    }
+  }
+
   .header--main.header .swiper-slide {
     padding-top: 170px !important;
   }
@@ -3152,6 +3194,31 @@ a {
 }
 
 @media (max-width: 600px) {
+
+  .ask__hidden{
+    margin-left: 20px;
+    font-size: 16px;
+  }
+
+  .ask .ask-row{
+    padding: 20px;
+  }
+
+  .ask__text{
+    font-size: 16px;
+  }
+
+  .ask__name{
+    font-size: 14px;
+  }
+
+  .ask__right{
+    flex: 0 0 7%;
+  }
+
+  .ask__left{
+    margin-right: 10px;
+  }
 
   .news-sliders{
     padding: 20px;
