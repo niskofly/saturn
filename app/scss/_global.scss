@@ -66,6 +66,7 @@ a {
   border-radius: 7px;
   cursor: pointer;
   transition: 0.3s;
+  border: none;
 
   &:hover {
     background: #002D64;
@@ -199,9 +200,11 @@ a {
     border: 1px solid #DFEEFF;
     align-items: center;
     cursor: pointer;
+    padding-bottom: 20px;
 
     &:has(> div.active){
       background: #fff;
+      padding-bottom: 30px;
     }
 
     &:first-of-type {
@@ -225,6 +228,7 @@ a {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    padding-bottom: 20px;
   }
 
   &-card.active {
@@ -283,7 +287,6 @@ a {
 }
 
 .ask__hidden {
-  padding-top: 30px;
   display: block;
   max-height: 0;
   overflow: hidden;
@@ -616,7 +619,197 @@ a {
 
 }
 
+
+.football-student{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  &__row{
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+
+    input[type="checkbox"]{
+      width: 25px;
+      height: 25px;
+      margin-right: 15px;
+      margin-left: 0;
+      cursor: pointer;
+    }
+  }
+
+  button{
+    width: fit-content;
+    padding: 10px 25px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    border: none;
+    background: #0077FF;
+    border-radius: 7px;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover{
+      background: #002D64;
+    }
+  }
+
+  &__file{
+    height: 20px;
+    width: 20px;
+    background: url("../images/file.svg");
+    display: block;
+    cursor: pointer;
+
+    input[type='file']{
+      outline: none;
+      display: none;
+    }
+  }
+
+  &__file-text{
+    margin-left: 30px;
+    white-space: nowrap;
+  }
+
+
+
+  &__column{
+    flex: 0 0 calc(66% - 3px);
+
+    textarea{
+      resize: none;
+      background: #F7F7F7;
+      border: 1px solid #D9D9D9;
+      border-radius: 3px;
+      outline: none;
+      width: 100%;
+      padding: 20px 15px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #333333;
+      background: transparent;
+    }
+  }
+
+  &__sub-main{
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+
+    .football-student__column{
+      flex: 0 0 calc((100% - 150px) / 6);
+
+      input{
+        width: 100%;
+      }
+    }
+  }
+
+  &__main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    select{
+      position: relative;
+      font-size: 16px;
+      line-height: 16px;
+      color: #666666;
+      background: transparent;
+      padding: 16px 20px;
+      border: 1px solid #D9D9D9;
+      border-radius: 3px;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+    }
+
+    .football-student__column--select{
+      position: relative;
+
+      &:after{
+        content: url("../images/polygon.svg");
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        right: 20px;
+        bottom: 25px
+      }
+    }
+
+    .football-student__column{
+      flex: 0 0 calc((100% - 60px) / 3);
+
+      &:nth-of-type(3n){
+        margin-right: 0;
+      }
+
+    }
+
+  }
+
+  &__column{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-right: 30px;
+
+    label{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      color: #666666;
+      margin-bottom: 5px;
+    }
+
+    input{
+      border: 1px solid #D9D9D9;
+      border-radius: 3px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #333333;
+      padding: 15px 20px;
+      outline:none;
+      background: transparent;
+    }
+
+    input:active, input:focus{
+      background: #fff;
+      border: 1px solid #D9D9D9;
+    }
+
+  }
+
+  &__column.football-student__column--adress{
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+
+}
+
+
 @media (max-width: 650px) {
+
+  .close{
+    bottom: 20px !important;
+    left: 20px !important;
+  }
+
+  .modal-content{
+    width: 90% !important;
+    padding: 20px 35px !important;
+  }
+
+  .modal__title{
+    margin-top: 20px !important;
+    font-size: 25px !important;
+    margin-bottom: 30px !important;
+  }
 
   .question--tabs{
     flex-wrap: wrap;
@@ -726,6 +919,155 @@ a {
 
   &__card.active{
     font-weight: 700;
+  }
+
+}
+
+.question-modal-card{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  background: #E7F2FB;
+  border: 1px solid #DFEEFF;
+  border-radius: 7px;
+  align-items: center;
+
+  &__icon{
+    margin-right: 40px;
+  }
+
+  &__text{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000000;
+  }
+
+  &__button{
+    border: none;
+    white-space: nowrap;
+    padding: 10px 25px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-left: auto;
+  }
+}
+
+.modal{
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; /* Оставаться на месте */
+  z-index: 1; /* Сидеть на вершине */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Включите прокрутку, если это необходимо *//* Цвет запасной вариант */
+  background: rgba(0, 0, 0, 0.2);/* Черный с непрозрачностью */
+
+  &-content{
+    background-color: #fff;
+    margin: 5% auto; /* 15% сверху и по центру */
+    padding: 40px 50px;
+    border: none;
+    width: 600px; /* Может быть больше или меньше, в зависимости от размера экрана */
+    box-shadow: 0px 10px 30px rgba(43, 58, 95, 0.15);
+    border-radius: 7px;
+    padding-bottom: 50px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    position: relative;
+    bottom: 30px;
+    left: 30px;
+  }
+
+  button{
+    line-height: 24px;
+    width: fit-content;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__title{
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: #002D64;
+    margin-bottom: 45px;
+  }
+
+  &-form{
+
+    &__column{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+
+      label{
+        font-size: 14px;
+        line-height: 24px;
+        color: #666666;
+        margin-bottom: 5px;
+
+        span{
+          color: #FF0000;
+        }
+      }
+
+      input{
+        padding: 15px 20px;
+        font-size: 16px;
+        color: #333333;
+        outline: none;
+        border: 1px solid #D9D9D9;
+        border-radius: 3px;
+        background: #F7F7F7;
+
+        &:active, &:focus{
+          background: #fff;
+          outline: none;
+        }
+      }
+
+      textarea{
+        resize: none;
+        padding: 15px 20px;
+        background: #F7F7F7;
+        border: 1px solid #D9D9D9;
+        border-radius: 3px;
+        outline: none;
+
+        &:active, &:focus{
+          background: #fff;
+        }
+      }
+    }
+
+    &__row{
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+
+      input{
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+    }
+
   }
 
 }
@@ -3083,6 +3425,15 @@ a {
   }
 }
 
+@media (max-width: 830px){
+
+  .football-student__column{
+    flex: 0 0 100% !important;
+    margin-right: 0 !important;
+  }
+
+}
+
 @media (max-width: 800px) {
 
   .news__row.news__row__quadro .news-card {
@@ -3193,7 +3544,44 @@ a {
 
 }
 
+@media (max-width: 650px){
+
+  .question-modal-card{
+    flex-wrap: wrap;
+  }
+
+  .question-modal-card__button{
+    flex: 0 0 100%;
+  }
+
+  .question-modal-card{
+    padding: 20px;
+  }
+
+  .question-modal-card__text{
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .question-modal-card__icon{
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+
+
+
+}
+
 @media (max-width: 600px) {
+
+  .football-student__file-text{
+    font-size: 14px;
+  }
+
+  label[for='politic']{
+    font-size: 14px;
+  }
 
   .ask__hidden{
     margin-left: 20px;

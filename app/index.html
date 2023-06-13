@@ -18,6 +18,7 @@
 
 <body>
 
+
 <header class="header">
     <nav class="navbar">
         <div class="container">
@@ -113,7 +114,6 @@
                                 <li class="tab">Проживание</li>
                                 <li class="tab">Образовательная программа</li>
                             </ul>
-
                             <div class="container--content">
                                 <div class="content content--active">
                                     <div class="ask">
@@ -279,6 +279,49 @@
 
                                 </div>
                             </div>
+                            <div class="question-modal-card">
+                                <div class="question-modal-card__icon">
+                                    <svg width="34" height="48" viewBox="0 0 34 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2222 0H3.56046C1.59407 0 0 1.59705 0 3.56859V44.4314C0 46.4023 1.58387 48 3.55097 48H30.2268C32.188 48 33.7778 46.4032 33.7778 44.4608V13.3333V12.4444L23.1111 0H22.2222ZM21.3333 1.77778H3.54769C2.5702 1.77778 1.77778 2.58713 1.77778 3.54748V44.4525C1.77778 45.4299 2.58615 46.2222 3.55548 46.2222H30.2223C31.2041 46.2222 32 45.4312 32 44.4562V14.2222H24.8852C22.9235 14.2222 21.3333 12.6461 21.3333 10.6561V1.77778ZM23.1111 2.66667V10.6511C23.1111 11.6415 23.9123 12.4444 24.8831 12.4444H31.4666L23.1111 2.66667ZM14.2222 19.5556V21.3333H28.4444V19.5556H14.2222ZM5.33333 17.7778V23.1111H10.6667V17.7778H5.33333ZM7.11111 19.5556V21.3333H8.88889V19.5556H7.11111ZM5.33333 26.6667V32H10.6667V26.6667H5.33333ZM7.11111 28.4444V30.2222H8.88889V28.4444H7.11111ZM14.2222 28.4444V30.2222H28.4444V28.4444H14.2222ZM5.33333 35.5556V40.8889H10.6667V35.5556H5.33333ZM7.11111 37.3333V39.1111H8.88889V37.3333H7.11111ZM14.2222 37.3333V39.1111H28.4444V37.3333H14.2222Z" fill="#157EFB"/>
+                                    </svg>
+                                </div>
+                                <div class="question-modal-card__text">
+                                    Не нашли ответа на свой вопрос?<br>
+                                    Свяжитесь с нами, и мы предоставим всю необходимую информацию
+                                </div>
+                                <button class="question-modal-card__button button" id="modalButton">Задать вопрос</button>
+
+                                <div id="myModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div class="modal__title">Задать вопрос</div>
+                                        <form name="modal-form" class="modal__form">
+                                            <div class="modal-form__column">
+                                                <label for="full-name">Представьтесь, пожалуйста <span>*</span></label>
+                                                <input type="text" name="full-name" required>
+                                            </div>
+                                            <div class="modal-form__column">
+                                                <label for="mail">Электронная почта <span>*</span></label>
+                                                <input type="email" name="mail" required>
+                                            </div>
+                                            <div class="modal-form__column">
+                                                <label for="phone">Телефон <span>*</span></label>
+                                                <input type="phone" name="phone" required>
+                                            </div>
+                                            <div class="modal-form__column">
+                                                <label for="text">Текст вопроса <span>*</span></label>
+                                                <textarea style="width: 100%; height: 150px" name="text"></textarea>
+                                            </div>
+                                            <div class="modal-form__row">
+                                                <input type="checkbox" id="politic" name="politic" checked required>
+                                                <label for="politic">Даю согласие на обработку персональных данных</label>
+                                            </div>
+                                            <button class="button" type="submit">Отправить запрос</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -364,6 +407,39 @@
     </div>
 </footer>
 <script>
+
+
+    let modal = document.getElementById("myModal");
+
+    // Получить кнопку, которая открывает модальный
+    let btn = document.getElementById("modalButton");
+
+    // Получить элемент <span>, который закрывает модальный
+    let span = document.getElementsByClassName("close")[0];
+
+    let body = document.querySelector('body')
+    // Когда пользователь нажимает на кнопку, откройте модальный
+    btn.onclick = function() {
+        modal.style.display = "block";
+        body.style.height = '100vh';
+        body.style.overflowY = 'hidden';
+    }
+
+    // Когда пользователь нажимает на <span> (x), закройте модальное окно
+    span.onclick = function() {
+        modal.style.display = "none";
+        body.style.height = 'unset';
+        body.style.overflowY = 'auto';
+    }
+
+    // Когда пользователь щелкает в любом месте за пределами модального, закройте его
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            body.style.height = 'unset';
+            body.style.overflowY = 'auto';;
+        }
+    }
 
     let ask = document.getElementsByClassName("ask-card");
     let i;

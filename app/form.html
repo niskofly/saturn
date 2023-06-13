@@ -97,8 +97,8 @@
     <main class="main">
         <div class="container">
             <div class="pagination">
-                <a href ="#" class="pagination__element">Главная</a>
-                <a href ="#" class="pagination__element">Родителям и абитуриентам</a>
+                <a href="#" class="pagination__element">Главная</a>
+                <a href="#" class="pagination__element">Родителям и абитуриентам</a>
                 <a class="pagination__element pagination__element--last">Стань футболистом</a>
             </div>
             <div class="page-info__title page-title">Стань футболистом</div>
@@ -107,43 +107,118 @@
                     <div class="page-info__main main-info">
                         <div class="main-info__title">Анкета для футболистов 11-17 лет</div>
                         <div class="main-info">
-                            <form name="football-student">
-                                <label for="surname">Фамилия</label>
-                                <input type="text" name="surname" required>
-                                <label for="name">Имя</label>
-                                <input type="text" name="name" required>
-                                <label for="father-name">Отчество</label>
-                                <input type="text" name="father-name" required>
-                                <label for="date">Дата рождения</label>
-                                <input type="number" name="date">
-                                <label for="place">Место рождения</label>
-                                <input type="text" name="place" required>
-                                <label for="country">Гражданство</label>
-                                <input type="text" name="country" required>
-                                <label for="address">Домашний адрес</label>
-                                <input type="text" name="address" required>
-                                <label for="experience">Стаж занятий в футболе</label>
-                                <input type="text" name="experience" required>
-                                <label for="school">Футбольная школа</label>
-                                <input type="text" name="school" required>
-                                <select name="position">
-                                    <!--Supplement an id here instead of using 'name'-->
-                                    <option value="position-1" selected>Вратарь</option>
-                                    <option value="position-2">Защитник</option>
-                                    <option value="position-3">Полузащитник</option>
-                                    <option value="position-4">Нападающий</option>
-                                </select>
-                                <label for="date">Рост, см</label>
-                                <input type="number" name="date">
-                                <label for="date">Вес, кг</label>
-                                <input type="number" name="date">
-                                <label for="date">Время пробега, 30 м</label>
-                                <input type="number" name="date">
-                                <label for="date">Время пробега, 15 м</label>
-                                <input type="number" name="date">
-                                <label for="date">Длина прыжка с места</label>
-                                <input type="number" name="date">
+                            <form name="football-student" class="football-student">
+                                <div class="football-student__main">
+                                    <div class="football-student__column">
+                                        <label for="surname">Фамилия</label>
+                                        <input type="text" name="surname" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="name">Имя</label>
+                                        <input type="text" name="name" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="father-name">Отчество</label>
+                                        <input type="text" name="father-name" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="date">Дата рождения</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="place">Место рождения</label>
+                                        <input type="text" name="place" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="country">Гражданство</label>
+                                        <input type="text" name="country" required>
+                                    </div>
+                                </div>
 
+                                <div class="football-student__column football-student__column--adress">
+                                    <label for="address">Домашний адрес</label>
+                                    <input type="text" name="address" required>
+                                </div>
+
+                                <div class="football-student__main">
+                                    <div class="football-student__column">
+                                        <label for="experience">Стаж занятий в футболе</label>
+                                        <input type="text" name="experience" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="school">Футбольная школа</label>
+                                        <input type="text" name="school" required>
+                                    </div>
+                                    <div class="football-student__column football-student__column--select">
+                                        <label for="address">Домашний адрес</label>
+                                        <select name="position">
+                                            <!--Supplement an id here instead of using 'name'-->
+                                            <option value="position-1" selected>Вратарь</option>
+                                            <option value="position-2">Защитник</option>
+                                            <option value="position-3">Полузащитник</option>
+                                            <option value="position-4">Нападающий</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="football-student__sub-main">
+                                    <div class="football-student__column">
+                                        <label for="date">Рост, см</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="date">Вес, кг</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="date">Время пробега, 30 м</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="date">Время пробега, 15 м</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="date">Длина прыжка с места</label>
+                                        <input type="number" name="date">
+                                    </div>
+                                </div>
+
+                                <div class="football-student__main">
+                                    <div class="football-student__column">
+                                        <label for="surname-parent">ФИО родителя</label>
+                                        <input type="text" name="surname-parent" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="phone">Телефон родителя</label>
+                                        <input type="phone" name="phone" required>
+                                    </div>
+                                    <div class="football-student__column">
+                                        <label for="mail">Электронная почта</label>
+                                        <input type="email" name="mail" required>
+                                    </div>
+                                </div>
+
+                                <div class="football-student__column">
+                                    <label for="info">Дополнительная информация</label>
+                                    <textarea style="width: 100%; height: 150px" name="info"></textarea>
+                                </div>
+
+                                <div class="football-student__row">
+                                    <label class="football-student__file">
+                                        <input type="file" name="file">
+                                        <div class="football-student__file-text">Добавить файл (не больше 5 Мб)</div>
+                                    </label>
+
+
+
+                                </div>
+                                <div class="football-student__row">
+                                    <input type="checkbox" id="politic" name="politic" checked required>
+                                    <label for="politic">Даю согласие на обработку персональных данных</label>
+                                </div>
+
+                                <button type="submit">Отправить данные</button>
 
 
                             </form>
@@ -153,11 +228,13 @@
                     <div class="page-info__aside aside">
                         <a href="#" class="aside__link aside__link--advanced">Основные сведения</a>
                         <div class="aside__panel">
-                            <a class="panel__link active" href="#">Структура и органы управления образовательной организацией</a>
+                            <a class="panel__link active" href="#">Структура и органы управления образовательной
+                                организацией</a>
                             <a class="panel__link" href="#">Документы</a>
                             <a class="panel__link" href="#">Образование</a>
                             <a class="panel__link" href="#">Образовательные стандарты</a>
-                            <a class="panel__link" href="#">Материально-техническое обеспечение и оснащённость образовательного процесса</a>
+                            <a class="panel__link" href="#">Материально-техническое обеспечение и оснащённость
+                                образовательного процесса</a>
                             <a class="panel__link" href="#">Спорт</a>
                             <a class="panel__link" href="#">Финансово-хозяйственная деятельность</a>
                             <a class="panel__link" href="#">Противодействие коррупции</a>
@@ -217,7 +294,8 @@
                 <img src="./images/logo-white.png" alt="logo">
             </div>
             <div class="footer__title">
-                © 2023, Государственное бюджетное профессиональное образовательное учреждение Московской области «Училище (техникум) олимпийского резерва № 5»
+                © 2023, Государственное бюджетное профессиональное образовательное учреждение Московской области
+                «Училище (техникум) олимпийского резерва № 5»
             </div>
             <div class="footer__document-links">
                 <a href="#" class="footer__document-link">Конфиденциальность</a>
