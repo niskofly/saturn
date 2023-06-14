@@ -117,6 +117,44 @@ $(function () {
         })
     }
 
+    //Аккордион для мобильного меню
+
+    (function () {
+        let acc = document.getElementsByClassName("mobile-menu-link--advanced");
+        let p;
+        for (p = 0; p < acc.length; p++) {
+            acc[p].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = '3000px';
+                }
+            });
+        }
+    }());
+
+    //Аккордион для мобильного меню второго уровня
+
+    (function () {
+        let acc = document.getElementsByClassName("mobile-menu-second-link--advanced");
+        let f;
+        for (f = 0; f < acc.length; f++) {
+            acc[f].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight){
+                    panel.style.maxHeight = null;
+                    panel.style.overflow = 'hidden'
+                } else {
+                    panel.style.maxHeight = '3000px';
+                    panel.style.overflow = 'visible'
+                }
+            });
+        }
+    }());
+
     //Аккордион
     (function () {
         let acc = document.getElementsByClassName("aside__link--advanced");
@@ -133,13 +171,12 @@ $(function () {
             });
         }
     }());
+
     //Мобильное меню
     (function () {
         const hamb = document.querySelector("#hamb");
         const popup = document.querySelector("#popup");
         const body = document.body;
-        // Клонируем меню, чтобы задать свои стили для мобильной версии
-        const menu = document.querySelector("#menu").cloneNode(1);
         // При клике на иконку hamb вызываем ф-ию hambHandler
         hamb.addEventListener("click", hambHandler);
         // Выполняем действия при клике ..
@@ -152,9 +189,7 @@ $(function () {
             renderPopup();
         }
         // Здесь мы рендерим элементы в наш попап
-        function renderPopup() {
-            popup.appendChild(menu);
-        }
+
         // Код для закрытия меню при нажатии на ссылку
         const links = Array.from(menu.children);
         // Для каждого элемента меню при клике вызываем ф-ию
