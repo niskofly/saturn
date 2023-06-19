@@ -4,6 +4,8 @@ $(function () {
     let logo = document.querySelector('#logo img')
     let socialLink = document.querySelectorAll('.header-social__link svg path')
     let screenWidth = window.innerWidth
+    let headerMobileClose = document.querySelectorAll('.mobile-close__img');
+    let headerMobileBack = document.querySelectorAll('.mobile-back__img');
     let swiper = new Swiper(".mySwiper", {
         slidesPerView: 6,
         spaceBetween: 30,
@@ -117,23 +119,7 @@ $(function () {
         })
     }
 
-    //Аккордион для мобильного меню
 
-    (function () {
-        let acc = document.getElementsByClassName("mobile-menu-link--advanced");
-        let p;
-        for (p = 0; p < acc.length; p++) {
-            acc[p].addEventListener("click", function() {
-                this.classList.toggle("active");
-                let panel = this.nextElementSibling;
-                if (panel.style.maxHeight){
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = '3000px';
-                }
-            });
-        }
-    }());
 
     //Аккордион для мобильного меню второго уровня
 
@@ -146,11 +132,21 @@ $(function () {
                 let panel = this.nextElementSibling;
                 if (panel.style.maxHeight){
                     panel.style.maxHeight = null;
-                    panel.style.overflow = 'hidden'
                 } else {
-                    panel.style.maxHeight = '3000px';
-                    panel.style.overflow = 'visible'
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
                 }
+
+                headerMobileBack.forEach((elem) =>{
+                    elem.addEventListener('click', () =>{
+                        panel.style.maxHeight = null;
+                    })
+                })
+
+                headerMobileClose.forEach((elem) =>{
+                    elem.addEventListener('click', () =>{
+                        panel.style.maxHeight = null;
+                    })
+                })
             });
         }
     }());
@@ -175,10 +171,38 @@ $(function () {
     //Мобильное меню
     (function () {
         const hamb = document.querySelector("#hamb");
+        const headerClose = document.querySelector("#header-close");
         const popup = document.querySelector("#popup");
         const body = document.body;
         // При клике на иконку hamb вызываем ф-ию hambHandler
         hamb.addEventListener("click", hambHandler);
+        headerClose.addEventListener('click', closeOnClick)
+
+        //Открытие панели для мобильного меню
+
+        let acc = document.getElementsByClassName("mobile-menu-link--advanced");
+        let p;
+        for (p = 0; p < acc.length; p++) {
+            acc[p].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                panel.classList.toggle("active")
+                headerMobileClose.forEach((close) =>{
+                  close.addEventListener('click', ()=>{
+                      this.classList.remove("active")
+                      panel.classList.remove("active")
+                  })
+                })
+                headerMobileBack.forEach((close) =>{
+                    close.addEventListener('click', ()=>{
+                        this.classList.remove("active")
+                        panel.classList.remove("active")
+                    })
+                })
+            });
+        }
+
+
         // Выполняем действия при клике ..
         function hambHandler(e) {
             e.preventDefault();
@@ -188,7 +212,10 @@ $(function () {
             body.classList.toggle("noscroll");
             renderPopup();
         }
-        // Здесь мы рендерим элементы в наш попап
+
+        headerMobileClose.forEach((close) => {
+            close.addEventListener('click', closeOnClick)
+        })
 
         // Код для закрытия меню при нажатии на ссылку
         const links = Array.from(menu.children);

@@ -552,10 +552,10 @@ a {
 
     &-panel--second{
       max-height: 0;
-      transition: 0.7s;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      transition: max-height .7s ease-in-out;
 
       a{
         font-weight: 400;
@@ -582,6 +582,15 @@ a {
       }
     }
 
+    &-second-title{
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #002D64;
+      margin-bottom: 30px;
+    }
+
     &-second-link{
       font-weight: 500;
       font-size: 18px;
@@ -604,12 +613,31 @@ a {
     }
 
     &-panel{
-      max-height: 0;
-      overflow: hidden;
-      transition: 0.7s;
-      margin-top: -10px;
+      background: #fff;
+      position: fixed;
+      left: -100%;
+      width: 100%;
+      top: 0;
+      padding: 20px;
+      height: 100%;
+      z-index: 123;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       flex-direction: column;
+      transition: .7s;
+
+      &__header{
+        display: flex;
+        flex-direction: row;
+        padding: 10px 0 30px 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &-panel.active{
+      left: 0;
     }
 
     &__social{
@@ -700,14 +728,14 @@ a {
 
     .popup {
       position: fixed;
-      top: 130px;
+      top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
       background-color: #fff;
-      z-index: 100;
+      z-index: 102;
       display: flex;
-      transition: 0.3s;
+      transition: 0.7s;
     }
 
     .popup.open {
@@ -761,6 +789,18 @@ a {
     }
   }
 
+
+}
+
+.header-popup{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: flex-start;
+
+  &__close{
+    margin-top: 10px;
+  }
 
 }
 
@@ -1011,11 +1051,6 @@ a {
     padding-top: 20px !important;
     padding-bottom: 20px !important;
   }
-
-  .header .popup {
-    top: 85px !important;
-  }
-
   .header .bar {
     width: 18px;
   }
@@ -1613,10 +1648,6 @@ a {
   .navbar {
     padding-top: 20px !important;
     padding-bottom: 20px !important;
-  }
-
-  .header .popup {
-    top: 85px !important;
   }
 
   .header .bar {
