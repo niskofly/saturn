@@ -382,6 +382,7 @@ a {
     padding: 45px 0 25px;
     border-bottom: 1px solid #DFEEFF;
     margin-bottom: 40px;
+    height: fit-content;
 
     &__logo {
       flex: 0 0 17%;
@@ -1596,6 +1597,7 @@ a {
 
 .swiper-main {
   position: relative;
+  height: fit-content;
 
   &__title {
     font-family: 'Unbounded';
