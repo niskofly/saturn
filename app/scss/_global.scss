@@ -297,6 +297,75 @@ a {
   margin-left: 40px;
 }
 
+.news-detail{
+
+  &__row{
+    display: flex;
+  }
+
+  &__left{
+    flex:  0 1 49%;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__date{
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 30px;
+  }
+
+  &__main-text{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+
+  &__text{
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: 30px;
+
+    p{
+      margin-bottom: 10px;
+    }
+  }
+
+  &__right{
+    max-width: 792px;
+  }
+
+  &__tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  &__tag{
+    background: #E7F2FB;
+    border-radius: 7px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #002D64;
+    transition: 0.3s;
+
+    &:hover{
+      transform: translateY(-5px);
+    }
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+  }
+
+}
+
 .header {
   position: relative;
 
@@ -538,6 +607,14 @@ a {
     overflow-x: hidden;
     padding-bottom: 150px;
 
+    .mobile-back{
+      cursor: pointer;
+    }
+
+    .mobile-close{
+      cursor: pointer;
+    }
+
 
     .kids-page .main-bottom__link{
       font-weight: 900;
@@ -545,8 +622,14 @@ a {
     }
 
     &-second-link.mobile-menu-second-link--advanced.active{
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    &-second-link.mobile-menu-second-link--advanced.active{
       &:after{
-        content: url("../images/polygon-bottom.svg");
+        transform: rotate(180deg);
+        top: 0px;
       }
     }
 
@@ -605,10 +688,11 @@ a {
       position: relative;
 
       &:after{
-        content: url("../images/polygon-menu.svg");
+        content: url("../images/polygon-bottom.svg");
         position: absolute;
         top: -2px;
         right: 0;
+        transition: 0.5s;
       }
     }
 
@@ -736,6 +820,10 @@ a {
       z-index: 102;
       display: flex;
       transition: 0.7s;
+    }
+
+    .header-popup__close{
+      cursor: pointer;
     }
 
     .popup.open {
@@ -3195,6 +3283,23 @@ a {
 
 @media (max-width: 1200px) {
 
+  .news-detail{
+
+    &__row{
+      flex-direction: column;
+    }
+
+    &__left{
+      margin-bottom: 40px;
+    }
+
+    &__right{
+      margin: 0 auto;
+    }
+
+
+  }
+
   .news__row.news__row--reverse{
 
     .news-card:first-of-type{
@@ -3608,6 +3713,10 @@ a {
     margin-right: 0 !important;
   }
 
+  .news-detail__right{
+    max-width: 100%;
+  }
+
 }
 
 @media (max-width: 800px) {
@@ -3750,6 +3859,10 @@ a {
 }
 
 @media (max-width: 600px) {
+
+  .news-sliders__bottom{
+    padding: 20px 30px !important;
+  }
 
   .football-student__file-text{
     font-size: 14px;

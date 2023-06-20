@@ -139,12 +139,14 @@ $(function () {
                 headerMobileBack.forEach((elem) =>{
                     elem.addEventListener('click', () =>{
                         panel.style.maxHeight = null;
+                        this.classList.remove('active')
                     })
                 })
 
                 headerMobileClose.forEach((elem) =>{
                     elem.addEventListener('click', () =>{
                         panel.style.maxHeight = null;
+                        this.classList.remove('active')
                     })
                 })
             });
