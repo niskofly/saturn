@@ -101,12 +101,18 @@ a {
 }
 
 .link {
-  color: #0077FF;
   font-size: 16px;
   position: relative;
   width: fit-content;
   cursor: pointer;
   transition: 0.5s;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  a{
+    color: #0077FF;
+  }
 
   &:after {
     content: url("../images/arrow.svg");
@@ -114,6 +120,9 @@ a {
     width: 18px;
     height: 12px;
     right: -28px;
+    top: -5px;
+    bottom: 0;
+    margin: auto;
     transition: 0.4s;
 
   }
@@ -431,6 +440,7 @@ a {
         background: #ffff;
         /* тень у картинки */
         width: fit-content;
+        z-index:100;
         height: fit-content;
         box-shadow: 0px 10px 30px rgba(43, 58, 95, 0.15);
         display: flex;
@@ -767,7 +777,10 @@ a {
       &:after{
         content: url("../images/polygon-menu.svg");
         position: absolute;
-        top: -2px;
+        bottom: 0;
+        margin: auto;
+        height: 9px;
+        top:0;
         right: 0;
       }
     }
@@ -788,6 +801,7 @@ a {
   }
 
   @media (max-width: 1000px) {
+
     .navbar__wrap .menu {
       display: none;
     }
@@ -1543,6 +1557,7 @@ a {
 
   .swiper-pagination {
     position: static !important;
+    height: 35px !important;
     margin-right: 30px;
   }
 
@@ -1645,7 +1660,8 @@ a {
   }
 
   .header .navbar__logo {
-    flex: 0 0 30%;
+    flex: 0 0 40%;
+    max-width: 200px;
   }
 
   .header .navbar {
@@ -1808,11 +1824,13 @@ a {
 
 .pagination {
   display: flex;
+  font-weight: 300;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 
   &__element {
     margin-right: 50px;
+    color:#999999;
     position: relative;
 
     &:after {
@@ -1858,7 +1876,7 @@ a {
   }
 
   p {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
 
   img {
@@ -1891,7 +1909,7 @@ a {
   }
 
   &-card {
-    flex: 0 0 calc((53% - 60px) / 2);
+    flex: 0 0 calc((51% - 60px) / 2);
     border-radius: 10px;
     transition: 0.5s;
     background: transparent;
@@ -1900,7 +1918,7 @@ a {
     margin-right: 30px;
 
     &:first-of-type {
-      flex: 0 0 47%;
+      flex: 0 0 49%;
       margin-right: 30px;
       position: relative;
       background: transparent;
@@ -1930,13 +1948,16 @@ a {
         border-radius: 10px;
       }
 
-      .news-card__title {
+      .news-card__bottom{
         position: absolute;
+        padding: 0 40px;
+        bottom: 20px;
+      }
+
+      .news-card__title {
         font-weight: 600;
         font-size: 28px;
         color: #fff;
-        bottom: 68px;
-        left: 40px;
 
         &:hover {
           color: #fff;
@@ -1944,11 +1965,8 @@ a {
       }
 
       .news-card__date {
-        position: absolute;
         font-size: 14px;
         color: #fff;
-        bottom: 40px;
-        left: 40px;
 
       }
 
@@ -2586,7 +2604,15 @@ a {
 
   &__button--next {
     position: relative;
-    cursor: pointer;
+    cursor: pointer;transition: .5s;
+    right: 0;
+    height: fit-content;
+    padding: 10px;
+
+    &:hover{
+      right: -10px;
+    }
+
 
     &:after {
       content: url("../images/slider-right.svg");
@@ -2598,6 +2624,14 @@ a {
     position: relative;
     cursor: pointer;
     margin-right: 20px;
+    transition: .5s;
+    left: 0;
+    height: fit-content;
+    padding: 10px;
+
+    &:hover{
+      left: -10px;
+    }
 
     &:after {
       content: url("../images/slider-left.svg");
@@ -2703,7 +2737,7 @@ a {
 
   &__main {
     flex: 0 0 74.5%;
-    margin-right: 30px;
+    margin-right: 50px;
   }
 
 
@@ -3284,6 +3318,10 @@ a {
 }
 
 @media (max-width: 1200px) {
+  .news-card:first-of-type:hover .news-card__title{
+    color: #002D64;
+  }
+
 
   .news-detail{
 
@@ -3364,7 +3402,6 @@ a {
 
 
   .news-card {
-    padding: 20px;
     margin-bottom: 30px;
   }
 
@@ -3373,7 +3410,6 @@ a {
   }
 
   .news-card:first-of-type {
-    padding: 20px;
     border: 1px solid #DFEEFF;
     margin-bottom: 30px;
     flex: 0 0 calc((100% - 90px) / 3);
@@ -3546,6 +3582,13 @@ a {
     flex: 0 0 100%;
   }
 
+  .news-card:first-of-type .news-card__bottom{
+    position: static !important;
+  }
+
+  .news-card:first-of-type:hover .news-card__title{
+    color: #002D64;
+  }
 
   .personal-card {
     flex: 0 0 calc((100% - 70px) / 3);
@@ -3667,11 +3710,12 @@ a {
   }
 
   .afisha__left {
-    flex: 0 0 30%;
+    flex: 0 0 50%;
   }
 
   .afisha__right {
     margin: 0 auto;
+    margin-bottom: 12px;
     margin-top: 30px;
     flex: 0 0 100%;
   }
@@ -3800,6 +3844,7 @@ a {
 
   .footer__title {
     flex: 0 0 100%;
+    margin-top: 30px;
     margin-bottom: 30px;
     margin-right: 0;
     text-align: center;
@@ -3807,6 +3852,7 @@ a {
 
   .footer__document-links {
     flex: 0 0 100%;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4247,4 +4293,44 @@ a {
       color: #0077FF;
     }
   }
+}
+
+
+@media (min-width: 801px) and (max-width: 1290px) {
+  .contacts__phones {
+    min-width:370px;
+  }
+  .contacts__map {
+    margin-right:50px;
+  }
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.header-modal-card__button {
+  border: none;
+  white-space: nowrap;
+  padding: 7px 20px;
+  font-size: 14px;
+  line-height: 24px;
+  margin-right: auto;
+}
+.header .navbar__logo {
+  max-width: 200px;
+}
+.swiper-student .swiper-slide {
+  border: 4px solid transparent;
+}
+.swiper-student .swiper-slide-thumb-active {
+  border: 4px solid #0077FF;
+  border-radius: 4px;
+}
+.swiper-student .swiper-slide:hover {
+  border: 4px solid #0077FF;
+  border-radius: 4px;
+}
+.stages a:not(:last-child){
+  border-bottom:0px;
 }

@@ -29,6 +29,69 @@ $(function () {
         }
     });
 
+    //Мобильное меню
+    (function () {
+        const hamb = document.querySelector("#hamb");
+        const headerClose = document.querySelector("#header-close");
+        const popup = document.querySelector("#popup");
+        const body = document.body;
+        // При клике на иконку hamb вызываем ф-ию hambHandler
+        hamb.addEventListener("click", hambHandler);
+        headerClose.addEventListener('click', closeOnClick)
+
+        //Открытие панели для мобильного меню
+
+        let acc = document.getElementsByClassName("mobile-menu-link--advanced");
+        let p;
+        for (p = 0; p < acc.length; p++) {
+            acc[p].addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                panel.classList.toggle("active")
+                headerMobileClose.forEach((close) =>{
+                    close.addEventListener('click', ()=>{
+                        this.classList.remove("active")
+                        panel.classList.remove("active")
+                    })
+                })
+                headerMobileBack.forEach((close) =>{
+                    close.addEventListener('click', ()=>{
+                        this.classList.remove("active")
+                        panel.classList.remove("active")
+                    })
+                })
+            });
+        }
+
+
+        // Выполняем действия при клике ..
+        function hambHandler(e) {
+            e.preventDefault();
+            // Переключаем стили элементов при клике
+            popup.classList.toggle("open");
+            hamb.classList.toggle("active");
+            body.classList.toggle("noscroll");
+            renderPopup();
+        }
+
+        headerMobileClose.forEach((close) => {
+            close.addEventListener('click', closeOnClick)
+        })
+
+        // Код для закрытия меню при нажатии на ссылку
+        const links = Array.from(menu.children);
+        // Для каждого элемента меню при клике вызываем ф-ию
+        links.forEach((link) => {
+            link.addEventListener("click", closeOnClick);
+        });
+        // Закрытие попапа при клике на меню
+        function closeOnClick() {
+            popup.classList.remove("open");
+            hamb.classList.remove("active");
+            body.classList.remove("noscroll");
+        }
+    }());
+
     let slider = new Swiper('.swiper-main', {
         // Enable lazy loading
         lazy: true,
@@ -170,68 +233,6 @@ $(function () {
         }
     }());
 
-    //Мобильное меню
-    (function () {
-        const hamb = document.querySelector("#hamb");
-        const headerClose = document.querySelector("#header-close");
-        const popup = document.querySelector("#popup");
-        const body = document.body;
-        // При клике на иконку hamb вызываем ф-ию hambHandler
-        hamb.addEventListener("click", hambHandler);
-        headerClose.addEventListener('click', closeOnClick)
-
-        //Открытие панели для мобильного меню
-
-        let acc = document.getElementsByClassName("mobile-menu-link--advanced");
-        let p;
-        for (p = 0; p < acc.length; p++) {
-            acc[p].addEventListener("click", function() {
-                this.classList.toggle("active");
-                let panel = this.nextElementSibling;
-                panel.classList.toggle("active")
-                headerMobileClose.forEach((close) =>{
-                  close.addEventListener('click', ()=>{
-                      this.classList.remove("active")
-                      panel.classList.remove("active")
-                  })
-                })
-                headerMobileBack.forEach((close) =>{
-                    close.addEventListener('click', ()=>{
-                        this.classList.remove("active")
-                        panel.classList.remove("active")
-                    })
-                })
-            });
-        }
-
-
-        // Выполняем действия при клике ..
-        function hambHandler(e) {
-            e.preventDefault();
-            // Переключаем стили элементов при клике
-            popup.classList.toggle("open");
-            hamb.classList.toggle("active");
-            body.classList.toggle("noscroll");
-            renderPopup();
-        }
-
-        headerMobileClose.forEach((close) => {
-            close.addEventListener('click', closeOnClick)
-        })
-
-        // Код для закрытия меню при нажатии на ссылку
-        const links = Array.from(menu.children);
-        // Для каждого элемента меню при клике вызываем ф-ию
-        links.forEach((link) => {
-            link.addEventListener("click", closeOnClick);
-        });
-        // Закрытие попапа при клике на меню
-        function closeOnClick() {
-            popup.classList.remove("open");
-            hamb.classList.remove("active");
-            body.classList.remove("noscroll");
-        }
-        }());
 
     window.addEventListener('resize', (e) => {
 
@@ -239,7 +240,6 @@ $(function () {
 
         if(screenWidth >= 1000){
             header.classList.remove('mobile')
-            console.log('comp')
 
         let currentSlide = slides[slider.realIndex]
         if (currentSlide.dataset.color === 'light'){
@@ -282,7 +282,6 @@ $(function () {
         }
 
         if(screenWidth < 1000) {
-            console.log('mobilka')
 
         let currentSlide = slides[slider.realIndex]
         header.classList.add('mobile')
